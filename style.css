@@ -1,0 +1,584 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+}
+
+#video_background {
+    width: 100vw;
+    height: 119vh;
+    overflow: hidden;
+    position: absolute;
+    z-index: -99999;
+}
+
+
+/* -----inicio del header-------------------------------------------------------*/
+
+
+.header {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    height: 4.5vh;
+    /* border: 2px solid gray; */
+    background-color: rgb(66, 66, 66);
+
+}
+
+
+.menu,
+.lista {
+    display: inline-flex;
+    text-decoration: none;
+    list-style-type: none;
+    color: rgb(255, 255, 255);
+    font-size: 1em;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0px;
+}
+
+.lista,
+li {
+    padding: 0px 30px 0px 30px;
+}
+
+/* -- carrusel--------------------------------------------------------------- */
+
+#viewportF {
+    background-color: rgba(110, 142, 230, 0);
+    width: 100vw;
+    height: 95vh;
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+/* -------------------------------------------------------------------------- */
+
+.viewport {
+    background-color: rgba(0, 0, 0, 0);
+    width: 80%;
+    height: 84%;
+    z-index: 2;
+    overflow: hidden;
+    display: flex;
+    position: absolute;
+}
+#viewportSpy {
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url(Recursos/Sepronunciayan-removebg-preview.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 50%;
+    height: 84%;
+    z-index: 2;
+    overflow: hidden;
+    display: flex;
+    position: absolute;
+}
+
+/* -------------------------------------------------------------------------- */
+
+#viewportSobreMi {
+    background-color: rgba(0, 0, 0, 0.63);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: none;
+    align-items: center;
+    transition: 15s;
+}
+
+/* --------carta giratoria--------------------------------------------------- */
+
+.carta {
+    /*contenedor de la carta*/
+    position: relative;
+    width: 33%;
+    height: 100%;
+    top: 144px;
+    left: 85px;
+    border-radius: 5%;
+    overflow: hidden;
+}
+
+.frente {
+    /*frente, osea la primera cara que vez*/
+    position: absolute;
+    transform: perspective(600px) rotateY(0deg);
+    /*se pone aqui el transform y luego en el hover porque la carta comienza sin moverce osea rotacion 0 luego en el hover se gira 180 grados*/
+    background: rgba(0, 0, 0, 0.342);
+    width: 60%;
+    height: 60%;
+    backface-visibility: hidden;
+    /*esto es para volver la cara oculta cuando este en el lado no visible */
+    transition: .5s;
+    box-shadow: 0 5px 10px black;
+    background-image: url(Recursos/yocartoon.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10%;
+}
+
+.espalda {
+    position: absolute;
+    /*espalda, osea la segunta cara que vez o la de atras*/
+    transform: perspective(600px) rotateY(180deg);
+    /*igual aqui como esta es la cara de espalda ya esta a 180 grados y con el hover se consigue que vaya al frente avanzando a 360 grados*/
+    background: rgba(0, 0, 0, 0.342);
+    width: 60%;
+    height: 60%;
+    backface-visibility: hidden;
+    /*esto es para volver la cara oculta cuando este en el lado no visible */
+    transition: .5s;
+    box-shadow: 0 5px 10px black;
+    background-image: url(Recursos/yo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10%;
+}
+
+.carta:hover .frente {
+    /* esto ya sabes para que es. pero te lo esplico, con eso cuando pasas el raton las caras giran asta ponerce en los grados que le pongas en rotate como la primera carta arranca en 0 con el hover girara 180 */
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.carta:hover .espalda {
+    transform: perspective(600px) rotateY(360deg);
+    /*como la segunda cara o trasera arranca en 180 gira hasta los 360*/
+}
+
+/* --------tarjeta-precentacion-principal------------------------------------ */
+
+#izquierdaViewport {
+    background-color: rgba(0, 0, 0, 0.63);
+    width: 75%;
+    height: 100%;
+    overflow: hidden;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+#arribaproyectos {
+    width: 106%;
+    height: 15%;
+    background-color: rgba(26, 23, 23, 0.911);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#tituloProyecto {
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 3em;
+    text-decoration-line: none;
+    color: white;
+}
+
+#Abajoproyectos {
+    width: 100%;
+    background-color: rgba(82, 82, 82, 0.418);
+    height: 80%;
+    padding: 18px 14px 16px 86px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 3%;
+}
+
+.proyectos {
+    width: 20%;
+    height: 40%;
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: 8px 8px 15px #000000;
+    border-radius: 30px; 
+    padding: 20px;
+}
+
+#proyectos1{
+    background-image: url(Recursos/42.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* width: 100%;
+    height: 100%; */
+}
+#proyectos1:hover{
+    transform: scale(1.1);
+    z-index: 9999;
+}
+
+#proyectos2{
+    background-image: url(Recursos/ioc.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* width: 100%;
+    height: 100%; */
+}
+#proyectos2:hover{
+    transform: scale(1.1);
+    z-index: 9999;
+}
+
+#proyectos3{
+    background-image: url(Recursos/ioc.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* width: 100%;
+    height: 100%; */
+}
+#proyectos3:hover{
+    transform: scale(1.1);
+    z-index: 9999;
+}
+
+#proyectos4{
+    background-image: url(Recursos/ioc.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* width: 100%;
+    height: 100%; */
+}
+#proyectos4:hover{
+    transform: scale(1.1);
+    z-index: 9999;
+}
+
+#proyectos5{
+    background-image: url(Recursos/ioc.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* width: 100%;
+    height: 100%; */
+}
+#proyectos5:hover{
+    transform: scale(1.1);
+    z-index: 9999;
+}
+
+#proyectos6{
+    background-image: url(Recursos/ioc.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* width: 100%;
+    height: 100%; */
+}
+#proyectos6:hover{
+    transform: scale(1.1);
+    z-index: 9999;
+}
+
+/* -------------------------------------------------------------------------- */
+
+#derechaViewport {
+    background-color: rgba(0, 0, 0, 0.753);
+    width: 25%;
+    height: 100%;
+    overflow: hidden;
+    display: none;
+    box-shadow: inset 2px 2px 8px 15px #a7a3a352;
+}
+
+.precentacion {
+    width: 55%;
+    height: 83%;
+    background-color: rgba(145, 144, 144, 0.336);
+    box-shadow: 8px 8px 15px #000000;
+    border-radius: 30px;
+    
+}
+
+h4{
+    color: black;
+    text-align: center;
+}
+
+a{
+  text-decoration: none;  
+}
+
+.precentacion,
+h3 {
+    font-size: 2em;
+    text-align: center;
+    padding: 0px 20px;
+}
+
+.precentacion,
+p {
+    font-size: 1.1em;
+    text-align: justify;
+    padding: 30px;
+    color: white;
+}
+
+.carrusel-content {
+    width: 21vw;
+    height: 79vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tarjeta {
+    width: 300px;
+    height: 200px;
+    background-color: black;
+    font-size: 40px;
+    position: absolute;
+    margin: 87px auto;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    animation: carrusel 35s linear infinite;
+}
+
+.titulos-carrusell {
+    font-size: 0.45em;
+    color: white;
+}
+
+.carrusel-content:hover .tarjeta {
+    animation-play-state: paused;
+}
+
+@keyframes carrusel {
+    from {
+        transform: rotateX(360deg) translateZ(270px);
+        z-index: 10;
+        opacity: 0.95;
+    }
+
+    50% {
+        z-index: -10;
+    }
+
+    to {
+        transform: rotateX(0deg) translateZ(270px);
+        z-index: 10;
+    }
+}
+
+
+.pixar {
+    animation-delay: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+
+}
+
+#galletas {
+    animation-delay: -5s;
+}
+
+.galletas {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+#guinness {
+    animation-delay: -10s;
+}
+
+.guinness {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+#marvel {
+    animation-delay: -15s;
+}
+
+.marvel {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+#asimov {
+    animation-delay: -20s;
+}
+
+.asimov {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+#cartasAnimales {
+    animation-delay: -25s;
+}
+
+.cartasAnimales {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+#digestivo {
+    animation-delay: -30s;
+}
+
+.digestivo {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+/* -----contacto--------------------------------------------------------------------- */
+
+#viewportContacto {
+    background-color: rgba(0, 0, 0, 0.63);
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+
+}
+
+#derechaContactos {
+    background-color: rgba(0, 0, 0, 0);
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5%;
+}
+
+#iframe {
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 3em;
+    text-decoration-line: none;
+    color: white;
+}
+
+iframe {
+    width: 80%;
+    height: 60%;
+}
+
+
+#izquierdaContactos {
+    width: 50%;
+    background-color: rgba(150, 43, 43, 0);
+    height: 100%;
+    
+    overflow: hidden;
+}
+
+#izquierdaArribaContactos {
+    width: 100%;
+    background-color: rgba(26, 23, 23, 0.911);
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#tituloContacto {
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 3em;
+    text-decoration-line: none;
+    color: white;
+}
+
+#izquierdaAbajoContactos {
+    width: 100%;
+    background-color: rgba(82, 82, 82, 0.418);
+    height: 85%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+
+#textoContacto{
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5em;
+    text-decoration-line: none;
+    color: white;
+    margin: 25px;
+    text-align: center;
+}
+
+.logosContactos {
+    background-color: rgba(150, 43, 43, 0);
+    width: 20%;
+    height: 14%;
+    margin: -20px;
+    position: relative;
+    bottom:  5%;
+}
+
+.legendContactos {
+    width: 100%;
+    text-decoration: none;
+    /* text-align: center; */
+    text-decoration-line: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 122%;
+    color: white;
+    
+}
+
+#whatsapp {
+    background-image: url(Recursos/whatsapp.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+#instagram {
+    background-image: url(Recursos/instagram.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+
+}
+
+#linkeding {
+    background-image: url(Recursos/linkeding.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+#gmail {
+    background-image: url(Recursos/gmail.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+#twitter {
+    background-image: url(Recursos/twitter.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
